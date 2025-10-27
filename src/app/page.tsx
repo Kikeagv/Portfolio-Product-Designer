@@ -1,51 +1,75 @@
-import Link from "next/link";
+import { HydrateClient } from "~/trpc/server";
+import { LinkPreview } from "~/components/ui/link-preview";
+import AnimatedContent from "~/components/AnimatedContent";
+import FaultyTerminal from "~/components/FaultyTerminal";
 
-import { LatestPost } from "~/app/_components/post";
-import { api, HydrateClient } from "~/trpc/server";
-
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
-
+export default function Home() {
   return (
     <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
+      <main className="h-screen w-full bg-black text-white">
+        <div className="relative h-screen w-full">
+          <FaultyTerminal
+            scale={1.8}
+            gridMul={[2, 1]}
+            digitSize={1.2}
+            timeScale={1}
+            pause={false}
+            scanlineIntensity={1}
+            glitchAmount={1}
+            flickerAmount={1}
+            noiseAmp={1}
+            chromaticAberration={0}
+            dither={0}
+            curvature={0}
+            tint="#ffffff"
+            mouseReact={true}
+            mouseStrength={0.5}
+            pageLoadAnimation={false}
+            brightness={0.2}
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <AnimatedContent
+              distance={200}
+              direction="vertical"
+              reverse={false}
+              duration={1.5}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1.0}
+              threshold={0.2}
+              delay={0.3}
             >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
+              <section className="mx-auto max-w-4xl px-4 text-left">
+                <div className="mx-auto mb-10 max-w-3xl text-xl text-white md:text-3xl">
+                  <LinkPreview
+                    url="https://tailwindcss.com"
+                    className="font-bold text-purple-400"
+                  >
+                    Tailwind CSS
+                  </LinkPreview>{" "}
+                  and{" "}
+                  <LinkPreview
+                    url="https://framer.com/motion"
+                    className="font-bold text-purple-400"
+                  >
+                    Framer Motion
+                  </LinkPreview>{" "}
+                  are a great way to build modern websites.
+                </div>
+                <div className="mx-auto max-w-3xl text-xl text-white md:text-3xl">
+                  Visit{" "}
+                  <LinkPreview
+                    url="https://ui.aceternity.com"
+                    className="font-bold text-purple-400"
+                  >
+                    Aceternity UI
+                  </LinkPreview>{" "}
+                  for amazing Tailwind and Framer Motion components.
+                </div>
+              </section>
+            </AnimatedContent>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
-
-          <LatestPost />
         </div>
       </main>
     </HydrateClient>
