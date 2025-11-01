@@ -2,8 +2,6 @@ import { HydrateClient } from "~/trpc/server";
 import { LinkPreview } from "~/components/ui/link-preview";
 import AnimatedContent from "~/components/AnimatedContent";
 import FaultyTerminal from "~/components/FaultyTerminal";
-import SpotlightCard from "~/components/SpotlightCard";
-import Folder from "~/components/Folder";
 
 export default function Home() {
   return (
@@ -72,96 +70,6 @@ export default function Home() {
                 </div>
               </section>
             </AnimatedContent>
-          </div>
-        </div>
-        <div className="px-8 pb-6 dark:bg-gray-900">
-          <div className="py-12 dark:bg-gray-900">
-            <div className="mx-auto max-w-2xl lg:max-w-7xl lg:px-8">
-              <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
-                <SpotlightCard
-                  className="custom-spotlight-card lg:row-span-2"
-                  spotlightColor="rgba(194, 122, 255, 0.1)"
-                >
-                  <div className="p-6">
-                    <h3 className="mb-6 text-xl font-medium text-white">
-                      My work
-                    </h3>
-                    <div
-                      className="@container relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm"
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <div style={{ height: "300px", position: "relative" }}>
-                        <Folder
-                          size={2}
-                          color="#5227FF"
-                          className="custom-folder"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </SpotlightCard>
-
-                <SpotlightCard
-                  className="custom-spotlight-card flex items-center justify-center max-lg:row-start-1"
-                  spotlightColor="rgba(194, 122, 255, 0.1)"
-                >
-                  <div className="flex w-full flex-col gap-2">
-                    <p className="text-xl font-medium text-white">Work</p>
-                    <div className="flex w-full grow items-center justify-between">
-                      <div className="flex flex-col items-start text-base text-white">
-                        <p className="font-normal">Banco Atlántida</p>
-                        <p className="font-bold">UX/UI Analyst</p>
-                      </div>
-                      <p className="text-base font-bold whitespace-nowrap text-white">
-                        2023-ongoing
-                      </p>
-                    </div>
-                    <div className="flex w-full items-center justify-center">
-                      <div className="h-px w-full bg-white/20"></div>
-                    </div>
-                    <div className="flex w-full items-center justify-between">
-                      <div className="flex flex-col items-start text-base text-white">
-                        <p className="font-normal">BlueStar</p>
-                        <p className="font-bold">UX/UI Designer</p>
-                      </div>
-                      <p className="text-base font-bold whitespace-nowrap text-white">
-                        2020-2023
-                      </p>
-                    </div>
-                    <div className="flex w-full items-center justify-center">
-                      <div className="h-px w-full bg-white/20"></div>
-                    </div>
-                    <div className="flex w-full items-center justify-between">
-                      <div className="flex flex-col items-start text-base text-white">
-                        <p className="font-normal">Ministerio de Economía</p>
-                        <p className="font-bold">Web design Internship</p>
-                      </div>
-                      <p className="text-base font-bold whitespace-nowrap text-white">
-                        2022-2022
-                      </p>
-                    </div>
-                  </div>
-                </SpotlightCard>
-
-                <SpotlightCard
-                  className="custom-spotlight-card max-lg:row-start-3 lg:col-start-2 lg:row-start-2"
-                  spotlightColor="rgba(194, 122, 255, 0.1)"
-                >
-                  <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2"></div>
-                </SpotlightCard>
-
-                <SpotlightCard
-                  className="custom-spotlight-card lg:row-span-2"
-                  spotlightColor="rgba(194, 122, 255, 0.1)"
-                >
-                  <div className="relative mt-8 min-h-120 w-full grow"></div>
-                </SpotlightCard>
-              </div>
-            </div>
           </div>
         </div>
       </main>
